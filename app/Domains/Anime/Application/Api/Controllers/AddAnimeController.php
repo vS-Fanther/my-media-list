@@ -11,9 +11,7 @@ class AddAnimeController extends Controller
 {
     public function __construct(
         private readonly AddAnimeService $addAnimeService
-    )
-    {
-
+    ){
     }
 
     public function addAnime(AddAnimeRequest $addAnimeRequest): void

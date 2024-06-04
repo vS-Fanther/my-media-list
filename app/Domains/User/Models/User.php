@@ -2,24 +2,16 @@
 
 namespace App\Domains\User\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+
 
 /**
- * @property string $uuid
  * @property string $username
  * @property string $email
  * @property string $password
  */
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens;
-    use HasFactory;
-    use Notifiable;
-    use SoftDeletes;
 
     protected $hidden = [
         'password'
