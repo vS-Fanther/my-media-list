@@ -18,8 +18,8 @@ class DeleteMessageAction
     public function execute(MessageDTO $messageDTO): int
     {
         $message = $this->messageFactory->getMessageEntity();
+        $message->fillFromDTO($messageDTO);
 
-        return $this->messageDbRepository->deleteMessage(
-            $this->messageFactory->messageDTOToEntity($message, $messageDTO));
+        return $this->messageDbRepository->deleteMessage($message);
     }
 }

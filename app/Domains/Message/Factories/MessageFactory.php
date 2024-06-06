@@ -14,10 +14,6 @@ class MessageFactory
 
     public function messageDTOToEntity(Message $message, MessageDTO $messageDTO): Message
     {
-        $message->message = $messageDTO->getMessage();
-        $message->userId = $messageDTO->getUserId();
-        $message->animeId = $messageDTO->getAnimeId();
-
         return $message;
     }
 }

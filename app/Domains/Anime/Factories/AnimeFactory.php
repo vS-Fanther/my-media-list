@@ -11,17 +11,4 @@ class AnimeFactory
     {
         return new Anime();
     }
-
-    public function animeDTOtoModel(Anime $anime, AnimeDTO $animeDTO): Anime
-    {
-        $anime->name = $animeDTO->getName();
-        $anime->description = $animeDTO->getDescription();
-        $anime->genres = $animeDTO->getGenres();
-        $anime->originalName = $animeDTO->getOriginalName();
-        $anime->link = $animeDTO->getLink();
-        $anime->theme = $animeDTO->getTheme();
-        $anime->mangaLink = $animeDTO->getMangaLink();
-
-        return $anime;
-    }
 }

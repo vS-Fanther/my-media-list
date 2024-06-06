@@ -1,6 +1,9 @@
 <?php
 
-namespace App\Domains\Message\Application\Actions;
+namespace App\Domains\Message\Application\Api\Controllers;
+
+use App\Domains\Message\Application\Actions\DeleteMessageRequest;
+use App\Domains\Message\Application\Actions\DeleteMessageService;
 
 class DeleteMessageController
 {

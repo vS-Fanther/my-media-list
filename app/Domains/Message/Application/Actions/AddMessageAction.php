@@ -18,9 +18,8 @@ class AddMessageAction
     public function execute(MessageDTO $messageDTO): Message
     {
         $message = $this->messageFactory->getMessageEntity();
+        $message->fillFromDTO($messageDTO);
 
-        return $this->messageDbRepository->addMessage(
-            $this->messageFactory->messageDTOToEntity($message, $messageDTO)
-        );
+        return $this->messageDbRepository->addMessage($message);
     }
 }

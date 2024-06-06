@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Domains\Message\Application\Actions;
+namespace App\Domains\Message\Application\Api\Controllers;
 
+use App\Domains\Message\Application\Actions\GetMessagesRequest;
+use App\Domains\Message\Application\Actions\GetMessagesService;
 use Illuminate\Database\Eloquent\Collection;
 
 class GetMessagesController
@@ -11,7 +13,7 @@ class GetMessagesController
     ){
     }
 
-    public function editMessage(GetMessagesRequest $getMessagesRequest): Collection
+    public function getMessages(GetMessagesRequest $getMessagesRequest): Collection
     {
         return $this->getMessagesService->getMessages($getMessagesRequest);
     }

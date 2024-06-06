@@ -2,6 +2,7 @@
 
 namespace App\Domains\Message\Models;
 
+use App\Domains\Message\Models\DTOs\MessageDTO;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,4 +14,11 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $table = "messages";
+
+    public function fillFromDTO(MessageDTO $messageDTO): void
+    {
+        $this->message = $messageDTO->getMessage();
+        $this->userId = $messageDTO->getUserId();
+        $this->animeId = $messageDTO->getAnimeId();
+    }
 }

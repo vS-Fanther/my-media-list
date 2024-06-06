@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Domains\Message\Application\Actions;
+namespace App\Domains\Message\Application\Api\Controllers;
 
+use App\Domains\Message\Application\Actions\AddMessageRequest;
+use App\Domains\Message\Application\Actions\AddMessageService;
 use App\Domains\Message\Models\Message;
 
 class AddMessageController

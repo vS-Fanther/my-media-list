@@ -18,7 +18,7 @@ class GetAnimeAction
     public function execute(AnimeDTO $animeDTO): Collection
     {
         $anime = $this->animeFactory->createAnimeModel();
-        $anime = $this->animeFactory->animeDTOtoModel($anime, $animeDTO);
+        $anime->fillFromDTO($animeDTO);
 
         return $this->animeDbRepository->find($anime);
     }
