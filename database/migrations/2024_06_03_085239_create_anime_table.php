@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('theme')->nullable();
             $table->string('originalName')->nullable();
             $table->string('link')->nullable();
+            $table->string('mangaLink')->nullable();
             $table->timestamps();
         });
     }

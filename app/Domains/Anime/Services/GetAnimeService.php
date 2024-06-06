@@ -2,20 +2,21 @@
 
 namespace App\Domains\Anime\Services;
 
-use App\Domains\Anime\Application\Actions\AddAnimeAction;
-use App\Domains\Anime\Application\Api\Requests\AddAnimeRequest;
+use App\Domains\Anime\Application\Actions\GetAnimeAction;
+use App\Domains\Anime\Application\Api\Requests\GetAnimeRequest;
 use App\Domains\Anime\Models\DTOs\AnimeDTO;
+use Illuminate\Database\Eloquent\Collection;
 
-class AddAnimeService
+class GetAnimeService
 {
     public function __construct(
-        private readonly AddAnimeAction $addAnimeAction
+        private readonly GetAnimeAction $getAnimeAction
     ) {
     }
 
-    public function addAnime(AddAnimeRequest $addAnimeRequest): void
+    public function getAnime(GetAnimeRequest $addAnimeRequest): Collection
     {
-        $this->addAnimeAction->execute(new AnimeDTO(
+        return $this->getAnimeAction->execute(new AnimeDTO(
             $addAnimeRequest->name,
             $addAnimeRequest->description,
             $addAnimeRequest->genres,

@@ -13,12 +13,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property string $link
  * @property string $mangaLink
  */
-class AddAnimeRequest extends FormRequest
+class GetAnimeRequest extends FormRequest
 {
-    public function rules(): array
-    {
-        return [
-            'name' => ['required', 'string'],
-        ];
-    }
+
 }
