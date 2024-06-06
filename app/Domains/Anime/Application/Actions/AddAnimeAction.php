@@ -17,7 +17,8 @@ class AddAnimeAction
 
     public function execute(AnimeDTO $animeDTO): void
     {
-        $anime = $this->animeFactory->animeDTOtoModel($animeDTO);
+        $anime = $this->animeFactory->createAnimeModel();
+        $anime = $this->animeFactory->animeDTOtoModel($anime, $animeDTO);
 
         $this->animeDbRepository->save($anime);
     }
