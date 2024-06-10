@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $originalName
  * @property string $link
  * @property string $mangaLink
+ * @property int $userId
  */
 class Anime extends Model
 {
@@ -32,5 +33,6 @@ class Anime extends Model
         $this->link = $animeDTO->getLink();
         $this->theme = $animeDTO->getTheme();
         $this->mangaLink = $animeDTO->getMangaLink();
+        $this->userId = $animeDTO->getUserId();
     }
 }

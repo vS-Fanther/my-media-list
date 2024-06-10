@@ -12,6 +12,7 @@ class AnimeDTO
         private readonly string $originalName,
         private readonly string $link,
         private readonly string $mangaLink,
+        private readonly int $userId
     )
     {
     }
@@ -49,6 +50,11 @@ class AnimeDTO
     public function getMangaLink(): string
     {
         return $this->mangaLink;
+    }
+
+    public function getUserId()
+    {
+        return $this->userId;
     }
 
 }

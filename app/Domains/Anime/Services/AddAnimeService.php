@@ -22,7 +22,8 @@ class AddAnimeService
             $addAnimeRequest->theme,
             $addAnimeRequest->originalName,
             $addAnimeRequest->link,
-            $addAnimeRequest->mangaLink
+            $addAnimeRequest->mangaLink,
+            $addAnimeRequest->userId
         ));
     }
 }

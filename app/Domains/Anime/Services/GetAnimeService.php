@@ -14,16 +14,18 @@ class GetAnimeService
     ) {
     }
 
-    public function getAnime(GetAnimeRequest $addAnimeRequest): Collection
+    public function getAnime(GetAnimeRequest $getAnimeRequest): Collection
     {
         return $this->getAnimeAction->execute(new AnimeDTO(
-            $addAnimeRequest->name,
-            $addAnimeRequest->description,
-            $addAnimeRequest->genres,
-            $addAnimeRequest->theme,
-            $addAnimeRequest->originalName,
-            $addAnimeRequest->link,
-            $addAnimeRequest->mangaLink
+            $getAnimeRequest->name,
+            $getAnimeRequest->description,
+            $getAnimeRequest->genres,
+            $getAnimeRequest->theme,
+            $getAnimeRequest->originalName,
+            $getAnimeRequest->link,
+            $getAnimeRequest->mangaLink,
+            $getAnimeRequest->userId
+
         ));
     }
 }
