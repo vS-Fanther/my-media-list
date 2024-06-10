@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('message', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId("user_id");
-            $table->foreignId("anime_id");
+            $table->integer("id")->autoIncrement()->unique();
+            $table->integer("user_id");
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->integer("anime_id");
+            $table->foreign("anime_id")->references("id")->on("anime");
             $table->string("message");
             $table->timestamps();
         });

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('anime', function (Blueprint $table) {
-            $table->id();
+            $table->integer("id")->autoIncrement()->unique();
             $table->string('name');
             $table->string('description')->nullable();
             $table->json('genres')->nullable();
@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('originalName')->nullable();
             $table->string('link')->nullable();
             $table->string('mangaLink')->nullable();
+            $table->integer("user_id");
+            $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
         });
     }
