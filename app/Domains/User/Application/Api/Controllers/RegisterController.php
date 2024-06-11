@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Domains\User\Application\Http\Controllers;
+namespace App\Domains\User\Application\Api\Controllers;
 
 use App\Domains\User\Application\Api\Requests\AddUserRequest;
-use App\Domains\User\Application\Http\Resources\RegisterResource;
 use App\Domains\User\Services\CreateUserService;
 use App\Http\Controllers\Controller;
 

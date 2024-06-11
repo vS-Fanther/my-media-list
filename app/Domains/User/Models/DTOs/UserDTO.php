@@ -4,7 +4,7 @@ namespace App\Domains\User\Models\DTOs;
 
 use App\Modules\Auth\Http\Requests\RegisterRequest;
 
-class CreateUserDTO
+class UserDTO
 {
     public function __construct(
         private readonly string $email,

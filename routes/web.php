@@ -6,7 +6,7 @@ use App\Domains\Message\Application\Api\Controllers\AddMessageController;
 use App\Domains\Message\Application\Api\Controllers\DeleteMessageController;
 use App\Domains\Message\Application\Api\Controllers\EditMessageController;
 use App\Domains\Message\Application\Api\Controllers\GetMessagesController;
-use App\Domains\User\Application\Http\Controllers\RegisterController;
+use App\Domains\User\Application\Api\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

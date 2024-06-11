@@ -4,9 +4,10 @@ namespace App\Domains\Anime\Application\Api\Controllers;
 
 use App\Domains\Anime\Application\Api\Requests\GetAnimeRequest;
 use App\Domains\Anime\Services\GetAnimeService;
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
 
-class GetAnimeController
+class GetAnimeController extends Controller
 {
     public function __construct(
         private readonly GetAnimeService $getAnimeService

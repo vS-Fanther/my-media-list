@@ -4,7 +4,7 @@ namespace App\Domains\User\Services;
 
 use App\Domains\User\Application\Actions\CreateUserAction;
 use App\Domains\User\Application\Api\Requests\AddUserRequest;
-use App\Domains\User\Models\DTOs\CreateUserDTO;
+use App\Domains\User\Models\DTOs\UserDTO;
 
 class CreateUserService
 {
@@ -16,7 +16,7 @@ class CreateUserService
 
     public function execute(AddUserRequest $addUserRequest): void
     {
-        $this->createUserAction->execute(new CreateUserDTO(
+        $this->createUserAction->execute(new UserDTO(
             $addUserRequest->username
             , $addUserRequest->email
             , $addUserRequest->password
