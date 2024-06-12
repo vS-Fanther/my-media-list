@@ -6,13 +6,13 @@ class AnimeDTO
 {
     public function __construct(
         private readonly string $name,
-        private readonly string $description,
-        private readonly array  $genres,
-        private readonly string $theme,
-        private readonly string $originalName,
-        private readonly string $link,
-        private readonly string $mangaLink,
-        private readonly int $userId
+        private readonly ?string $description,
+        private readonly ?string $genres,
+        private readonly ?string $theme,
+        private readonly ?string $originalName,
+        private readonly ?string $link,
+        private readonly ?string $mangaLink,
+        private readonly ?int $userId
     )
     {
     }
@@ -22,39 +22,40 @@ class AnimeDTO
         return $this->name;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function getGenres(): array
+    public function getGenres(): ?string
     {
         return $this->genres;
     }
 
-    public function getTheme(): string
+    public function getTheme(): ?string
     {
         return $this->theme;
     }
 
-    public function getOriginalName(): string
+    public function getOriginalName(): ?string
     {
         return $this->originalName;
     }
 
-    public function getLink(): string
+    public function getLink(): ?string
     {
         return $this->link;
     }
 
-    public function getMangaLink(): string
+    public function getMangaLink(): ?string
     {
         return $this->mangaLink;
     }
 
-    public function getUserId()
+    public function getUserId(): ?int
     {
         return $this->userId;
     }
+
 
 }

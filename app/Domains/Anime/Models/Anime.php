@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property string $genres
  * @property string $theme
- * @property string $originalName
+ * @property string $original_name
  * @property string $link
- * @property string $mangaLink
- * @property int $userId
+ * @property string $manga_link
+ * @property int $user_id
  */
 class Anime extends Model
 {
@@ -29,10 +29,10 @@ class Anime extends Model
         $this->name = $animeDTO->getName();
         $this->description = $animeDTO->getDescription();
         $this->genres = $animeDTO->getGenres();
-        $this->originalName = $animeDTO->getOriginalName();
+        $this->original_name = $animeDTO->getOriginalName();
         $this->link = $animeDTO->getLink();
         $this->theme = $animeDTO->getTheme();
-        $this->mangaLink = $animeDTO->getMangaLink();
-        $this->userId = $animeDTO->getUserId();
+        $this->manga_link = $animeDTO->getMangaLink();
+        $this->user_id = $animeDTO->getUserId();
     }
 }

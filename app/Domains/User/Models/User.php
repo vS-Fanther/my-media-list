@@ -3,6 +3,7 @@
 namespace App\Domains\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 
 /**
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
+    use HasApiTokens;
 
     protected $hidden = [
         'password'

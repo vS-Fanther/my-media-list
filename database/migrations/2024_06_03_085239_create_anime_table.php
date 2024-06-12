@@ -15,11 +15,11 @@ return new class extends Migration
             $table->integer("id")->autoIncrement()->unique();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->json('genres')->nullable();
+            $table->string('genres')->nullable();
             $table->string('theme')->nullable();
-            $table->string('originalName')->nullable();
+            $table->string('original_name')->nullable();
             $table->string('link')->nullable();
-            $table->string('mangaLink')->nullable();
+            $table->string('manga_link')->nullable();
             $table->integer("user_id");
             $table->foreign("user_id")->references("id")->on("users");
             $table->timestamps();
