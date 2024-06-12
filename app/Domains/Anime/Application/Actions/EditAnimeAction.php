@@ -10,7 +10,6 @@ use App\Domains\Anime\Repositories\AnimeDbRepository;
 class EditAnimeAction
 {
     public function __construct(
-        private readonly AnimeFactory $animeFactory,
         private readonly AnimeDbRepository $animeDbRepository
     )
     {
