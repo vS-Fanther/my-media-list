@@ -17,7 +17,7 @@ class RegisterController extends Controller
     }
     public function addUser(
         AddUserRequest $addUserRequest,
-    ): User|null
+    ): User
     {
         return $this->createUserService->execute($addUserRequest);
     }

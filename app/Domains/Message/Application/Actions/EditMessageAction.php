@@ -19,7 +19,8 @@ class EditMessageAction
     public function execute(EditMessageDTO $editMessageDTO): Message
     {
         $message = $this->messageFactory->getMessageEntity();
-        $message->fillFromDTO($editMessageDTO);
+        $message->id = $editMessageDTO->getId();
+        $message->message = $editMessageDTO->getMessage();
 
         return $this->messageDbRepository->updateMessage($message);
     }

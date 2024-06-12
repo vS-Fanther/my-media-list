@@ -19,8 +19,6 @@ class EditMessageService
     {
         $editMessageDTO = new EditMessageDTO(
             $editMessageRequest->id,
-            $editMessageRequest->userId,
-            $editMessageRequest->animeId,
             $editMessageRequest->message);
         return $this->editMessageAction->execute($editMessageDTO);
     }

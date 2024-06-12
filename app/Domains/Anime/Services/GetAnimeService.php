@@ -25,7 +25,6 @@ class GetAnimeService
             $getAnimeRequest->link,
             $getAnimeRequest->mangaLink,
             $getAnimeRequest->userId
-
         ));
     }
 }

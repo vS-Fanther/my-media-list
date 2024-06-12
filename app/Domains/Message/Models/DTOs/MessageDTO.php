@@ -3,7 +3,6 @@
 namespace App\Domains\Message\Models\DTOs;
 
 /**
- * @property int $id
  * @property int $userId
  * @property int $animeId
  * @property string $message
@@ -17,13 +16,6 @@ class MessageDTO
     )
     {
     }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-
 
     public function getUserId(): ?int
     {
