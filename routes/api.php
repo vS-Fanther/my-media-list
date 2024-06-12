@@ -1,7 +1,9 @@
 <?php
 
 use App\Domains\Anime\Application\Api\Controllers\AddAnimeController;
-use App\Domains\Anime\Application\Api\Controllers\GetAnimeController;
+use App\Domains\Anime\Application\Api\Controllers\EditAnimeController;
+use App\Domains\Anime\Application\Api\Controllers\GetAllAnimeController;
+use App\Domains\Anime\Application\Api\Controllers\GetAnimeByUserIdController;
 use App\Domains\Message\Application\Api\Controllers\AddMessageController;
 use App\Domains\Message\Application\Api\Controllers\DeleteMessageController;
 use App\Domains\Message\Application\Api\Controllers\EditMessageController;
@@ -21,9 +23,13 @@ Route::post('/tokens/create', function (Request $request) {
 
     return ['token' => $token->plainTextToken];
 });
+Route::prefix('/anime')->group(function () {
+    Route::post('/add', [AddAnimeController::class, 'addAnime']);
+    Route::get('/', [GetAllAnimeController::class, 'getAllAnime']);
+    Route::post('/edit', [EditAnimeController::class, 'editAnime']);
+    Route::get('/owner', [GetAnimeByUserIdController::class, 'getAnimeByUserId']);
+});
 
-Route::post('/anime/add', [AddAnimeController::class, 'addAnime']);
-Route::get('/anime/get', [GetAnimeController::class, 'getAnime']);
 
 Route::post('/user/add', [RegisterController::class, 'addUser']);
 
