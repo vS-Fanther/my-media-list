@@ -2,7 +2,6 @@
 
 namespace App\Domains\Anime\Application\Api\Controllers;
 
-use App\Domains\Anime\Application\Api\Requests\GetAllAnimeRequest;
 use App\Domains\Anime\Services\GetAnimeService;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
