@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Domains\Message\Application\Actions;
+namespace App\Domains\Message\Services;
 
+use App\Domains\Message\Application\Actions\GetMessagesAction;
+use App\Domains\Message\Application\Api\Requests\GetMessagesRequest;
 use App\Domains\Message\Models\DTOs\MessageDTO;
 use Illuminate\Database\Eloquent\Collection;
 

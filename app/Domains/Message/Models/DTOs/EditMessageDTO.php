@@ -2,15 +2,10 @@
 
 namespace App\Domains\Message\Models\DTOs;
 
-/**
- * @property int $id
- * @property int $userId
- * @property int $animeId
- * @property string $message
- */
-class MessageDTO
+class EditMessageDTO extends MessageDTO
 {
     public function __construct(
+        private readonly ?int    $id,
         private readonly ?int    $userId,
         private readonly ?int    $animeId,
         private readonly ?string $message
@@ -22,8 +17,6 @@ class MessageDTO
     {
         return $this->id;
     }
-
-
 
     public function getUserId(): ?int
     {
@@ -39,7 +32,6 @@ class MessageDTO
     {
         return $this->message;
     }
-
 
 
 }

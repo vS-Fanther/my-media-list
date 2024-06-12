@@ -2,8 +2,8 @@
 
 namespace App\Domains\Message\Application\Api\Controllers;
 
-use App\Domains\Message\Application\Actions\DeleteMessageRequest;
-use App\Domains\Message\Application\Actions\DeleteMessageService;
+use App\Domains\Message\Application\Api\Requests\DeleteMessageRequest;
+use App\Domains\Message\Services\DeleteMessageService;
 use App\Http\Controllers\Controller;
 
 class DeleteMessageController extends Controller

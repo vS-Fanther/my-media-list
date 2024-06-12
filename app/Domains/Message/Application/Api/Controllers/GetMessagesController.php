@@ -2,8 +2,8 @@
 
 namespace App\Domains\Message\Application\Api\Controllers;
 
-use App\Domains\Message\Application\Actions\GetMessagesRequest;
-use App\Domains\Message\Application\Actions\GetMessagesService;
+use App\Domains\Message\Application\Api\Requests\GetMessagesRequest;
+use App\Domains\Message\Services\GetMessagesService;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
 

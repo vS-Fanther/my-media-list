@@ -15,6 +15,6 @@ class GetMessagesAction
 
     public function execute(MessageDTO $messageDTO): Collection
     {
-        return $this->messageDbRepository->getMessagesForAnime($messageDTO->animeId);
+        return $this->messageDbRepository->getMessagesForAnime($messageDTO->getAnimeId());
     }
 }

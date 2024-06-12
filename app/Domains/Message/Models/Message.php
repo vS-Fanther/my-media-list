@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int id
- * @property int $userId
- * @property int $animeId
+ * @property int $user_id
+ * @property int $anime_id
  * @property string $message
  */
 class Message extends Model
@@ -17,8 +17,9 @@ class Message extends Model
 
     public function fillFromDTO(MessageDTO $messageDTO): void
     {
+        $this->id = $messageDTO->getId();
         $this->message = $messageDTO->getMessage();
-        $this->userId = $messageDTO->getUserId();
-        $this->animeId = $messageDTO->getAnimeId();
+        $this->user_id = $messageDTO->getUserId();
+        $this->anime_id = $messageDTO->getAnimeId();
     }
 }
