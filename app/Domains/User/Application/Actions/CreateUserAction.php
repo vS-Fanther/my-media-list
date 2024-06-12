@@ -16,7 +16,7 @@ class CreateUserAction
     ){
     }
 
-    public function execute(UserDTO $createUserDTO): User|null
+    public function execute(UserDTO $createUserDTO): User
     {
         $user = $this->userFactory->createUserModel();
 

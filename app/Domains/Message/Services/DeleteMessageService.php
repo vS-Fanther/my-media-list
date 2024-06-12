@@ -2,24 +2,19 @@
 
 namespace App\Domains\Message\Services;
 
-use App\Domains\Message\Application\Actions\DeleteMessageAction;
 use App\Domains\Message\Application\Api\Requests\DeleteMessageRequest;
-use App\Domains\Message\Models\DTOs\MessageDTO;
+use App\Domains\Message\Repositories\MessageDbRepository;
 
 class DeleteMessageService
 {
     public function __construct(
-        private readonly DeleteMessageAction $deleteMessageAction
+        private readonly MessageDbRepository $messageDbRepository
     )
     {
     }
 
     public function deleteMessage(DeleteMessageRequest $deleteMessageRequest): int
     {
-        return $this->deleteMessageAction->execute(new MessageDTO(
-            $deleteMessageRequest->userId,
-            $deleteMessageRequest->animeId,
-            $deleteMessageRequest->message,
-        ));
+        return $this->messageDbRepository->deleteMessage($deleteMessageRequest->messageId);
     }
 }

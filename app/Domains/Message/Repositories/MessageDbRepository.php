@@ -10,7 +10,17 @@ class MessageDbRepository
 {
     public function getMessagesForAnime(int $animeId): Collection
     {
-        return Message::all();
+        return Message::query()->where('anime_id', $animeId)->get();
+    }
+
+    public function getMessagesForUser(int $userId): Collection
+    {
+        return Message::query()->where('user_id', $userId)->get();
+    }
+
+    public function getMessagesByText(string $text): Collection
+    {
+        return Message::query()->where('message', 'like', '%' . $text . '%')->get();
     }
 
     public function addMessage(Message $message): Message
@@ -19,14 +29,22 @@ class MessageDbRepository
         return $message;
     }
 
-    public function deleteMessage(Message $message): int {
-        $message->delete();
-        return $message->id;
+    public function deleteMessage(int $messageId): bool {
+        return $this->getMessageById($messageId)->delete();
     }
 
     public function updateMessage(Message $message): Message
     {
-        DB::table('messages')->where('id', $message->id)->update($message->toArray());
-        return $message;
+        $innerMessage = $this->getMessageById($message->id);
+        $innerMessage->message = $message->message;
+        $innerMessage->save();
+
+        return $innerMessage;
+    }
+
+    public function getMessageById(int $messageId): Message
+    {
+        /** @var Message */
+        return Message::query()->findOrFail($messageId);
     }
 }

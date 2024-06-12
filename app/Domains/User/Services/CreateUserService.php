@@ -15,7 +15,7 @@ class CreateUserService
     {
     }
 
-    public function execute(AddUserRequest $addUserRequest): User|null
+    public function execute(AddUserRequest $addUserRequest): User
     {
         return $this->createUserAction->execute(new UserDTO(
             $addUserRequest->username
