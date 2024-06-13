@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property string $message
  */
-class GetMessagesByTextRequest extends FormRequest
+class GetMessagesRequest extends FormRequest
 {
 
 }

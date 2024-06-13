@@ -23,7 +23,7 @@ class MessageDbRepository
         return Message::query()->where('message', 'like', '%' . $text . '%')->get();
     }
 
-    public function addMessage(Message $message): Message
+    public function save(Message $message): Message
     {
         $message->save();
         return $message;
@@ -33,18 +33,14 @@ class MessageDbRepository
         return $this->getMessageById($messageId)->delete();
     }
 
-    public function updateMessage(Message $message): Message
-    {
-        $innerMessage = $this->getMessageById($message->id);
-        $innerMessage->message = $message->message;
-        $innerMessage->save();
-
-        return $innerMessage;
-    }
-
     public function getMessageById(int $messageId): Message
     {
         /** @var Message */
         return Message::query()->findOrFail($messageId);
+    }
+
+    public function getAllMessages(): Collection
+    {
+        return Message::all();
     }
 }

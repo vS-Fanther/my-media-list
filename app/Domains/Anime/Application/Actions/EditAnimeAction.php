@@ -15,10 +15,8 @@ class EditAnimeAction
     {
     }
 
-    public function execute(EditAnimeDTO $editAnimeDTO): Anime
+    public function execute(EditAnimeDTO $editAnimeDTO, Anime $anime): Anime
     {
-        $anime = $this->animeDbRepository->getAnimeById($editAnimeDTO->getId());
-
         $anime->name = $editAnimeDTO->getName();
         $anime->description = $editAnimeDTO->getDescription();
         $anime->genres = $editAnimeDTO->getGenres();

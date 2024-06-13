@@ -3,7 +3,7 @@
 namespace App\Domains\Message\Application\Api\Controllers;
 
 use App\Domains\Message\Application\Api\Requests\EditMessageRequest;
-use App\Domains\Message\Models\Message;
+use App\Domains\Message\Application\Api\Resources\MessageResource;
 use App\Domains\Message\Services\EditMessageService;
 use App\Http\Controllers\Controller;
 
@@ -14,8 +14,9 @@ class EditMessageController extends Controller
     ){
     }
 
-    public function editMessage(EditMessageRequest $editMessageRequest): Message
+    public function editMessage(EditMessageRequest $editMessageRequest): MessageResource
     {
-        return $this->editMessageService->editMessage($editMessageRequest);
+        $message = $this->editMessageService->editMessage($editMessageRequest);
+        return new MessageResource($message);
     }
 }

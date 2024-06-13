@@ -20,6 +20,6 @@ class AddMessageAction
         $message = $this->messageFactory->getMessageEntity();
         $message->fillFromDTO($messageDTO);
 
-        return $this->messageDbRepository->addMessage($message);
+        return $this->messageDbRepository->save($message);
     }
 }

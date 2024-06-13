@@ -3,7 +3,7 @@
 namespace App\Domains\Message\Services;
 
 use App\Domains\Message\Application\Api\Requests\GetAnimeMessagesRequest;
-use App\Domains\Message\Application\Api\Requests\GetMessagesByTextRequest;
+use App\Domains\Message\Application\Api\Requests\GetMessagesRequest;
 use App\Domains\Message\Application\Api\Requests\GetUserMessagesRequest;
 use App\Domains\Message\Repositories\MessageDbRepository;
 use Illuminate\Database\Eloquent\Collection;
@@ -26,8 +26,10 @@ class GetMessagesService
         return $this->messageDbRepository->getMessagesForUser($getUserMessagesRequest->userId);
     }
 
-    public function getMessagesByText(GetMessagesByTextRequest $getMessagesByTextRequest): Collection
+    public function getMessages(GetMessagesRequest $getMessagesByTextRequest): Collection
     {
-        return $this->messageDbRepository->getMessagesByText($getMessagesByTextRequest->message);
+        return $getMessagesByTextRequest->message ?
+            $this->messageDbRepository->getMessagesByText($getMessagesByTextRequest->message) :
+            $this->messageDbRepository->getAllMessages();
     }
 }

@@ -6,6 +6,7 @@ use App\Domains\Anime\Models\DTOs\AnimeDTO;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id
  * @property string $name
  * @property string $description
  * @property string $genres
