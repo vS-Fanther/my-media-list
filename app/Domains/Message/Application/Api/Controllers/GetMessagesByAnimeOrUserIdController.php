@@ -6,7 +6,7 @@ use App\Domains\Message\Application\Api\Requests\GetAnimeMessagesRequest;
 use App\Domains\Message\Application\Api\Requests\GetUserMessagesRequest;
 use App\Domains\Message\Services\GetMessagesService;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GetMessagesByAnimeOrUserIdController extends Controller
 {
@@ -15,13 +15,15 @@ class GetMessagesByAnimeOrUserIdController extends Controller
     ){
     }
 
-    public function getMessagesForAnime(GetAnimeMessagesRequest $getAnimeMessagesRequest): Collection
+    public function getMessagesForAnime(GetAnimeMessagesRequest $getAnimeMessagesRequest): ResourceCollection
     {
-        return $this->getMessagesService->getMessagesForAnime($getAnimeMessagesRequest);
+        $data = $this->getMessagesService->getMessagesForAnime($getAnimeMessagesRequest);
+        return new ResourceCollection($data);
     }
 
-    public function getMessagesForUser(GetUserMessagesRequest $getUserMessagesRequest): Collection
+    public function getMessagesForUser(GetUserMessagesRequest $getUserMessagesRequest): ResourceCollection
     {
-        return $this->getMessagesService->getMessagesForUser($getUserMessagesRequest);
+        $data = $this->getMessagesService->getMessagesForUser($getUserMessagesRequest);
+        return new ResourceCollection($data);
     }
 }

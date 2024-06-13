@@ -4,7 +4,7 @@ namespace App\Domains\Anime\Application\Api\Controllers;
 
 use App\Domains\Anime\Application\Api\Requests\GetAnimeByUserIdRequest;
 use App\Domains\Anime\Services\GetAnimeService;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GetAnimeByUserIdController
 {
@@ -13,8 +13,9 @@ class GetAnimeByUserIdController
     ){
     }
 
-    public function getAnimeByUserId(GetAnimeByUserIdRequest $getAnimeByUserIdRequest): Collection
+    public function getAnimeByUserId(GetAnimeByUserIdRequest $getAnimeByUserIdRequest): ResourceCollection
     {
-        return $this->getAnimeService->getAnimeByUserId($getAnimeByUserIdRequest);
+        $data = $this->getAnimeService->getAnimeByUserId($getAnimeByUserIdRequest);
+        return new ResourceCollection($data);
     }
 }

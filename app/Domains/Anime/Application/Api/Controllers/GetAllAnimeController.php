@@ -4,7 +4,7 @@ namespace App\Domains\Anime\Application\Api\Controllers;
 
 use App\Domains\Anime\Services\GetAnimeService;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GetAllAnimeController extends Controller
 {
@@ -14,8 +14,9 @@ class GetAllAnimeController extends Controller
     {
     }
 
-    public function getAllAnime(): Collection
+    public function getAllAnime(): ResourceCollection
     {
-        return $this->getAnimeService->getAllAnime();
+        $data = $this->getAnimeService->getAllAnime();
+        return new ResourceCollection($data);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Domains\Message\Application\Api\Controllers;
 use App\Domains\Message\Application\Api\Requests\GetMessagesRequest;
 use App\Domains\Message\Services\GetMessagesService;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GetMessagesController extends Controller
 {
@@ -14,8 +14,9 @@ class GetMessagesController extends Controller
     ){
     }
 
-    public function getMessages(GetMessagesRequest $getMessagesByTextRequest): Collection
+    public function getMessages(GetMessagesRequest $getMessagesByTextRequest): ResourceCollection
     {
-        return $this->getMessagesService->getMessages($getMessagesByTextRequest);
+        $data = $this->getMessagesService->getMessages($getMessagesByTextRequest);
+        return new ResourceCollection($data);
     }
 }
