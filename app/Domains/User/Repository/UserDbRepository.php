@@ -4,6 +4,7 @@ namespace App\Domains\User\Repository;
 
 use App\Domains\User\Models\User;
 use Illuminate\Support\Facades\DB;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class UserDbRepository
 {
@@ -12,13 +13,14 @@ class UserDbRepository
         return $user->save();
     }
 
-    public function getUser(User $user): void
+    public function getUser(User $user): PersonalAccessToken|null
     {
         $model = DB::table('users')->where('username', $user->username)->first();
 
         if (bcrypt($user->password) == $model->password) {
-            // Пароль верный
-            //todo TOken or smth
+            return $user->createToken("token")->accessToken;
+        } else {
+            return null;
         }
     }
 }

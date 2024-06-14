@@ -4,6 +4,7 @@ namespace App\Domains\Anime\Services;
 
 use App\Domains\Anime\Application\Actions\AddAnimeAction;
 use App\Domains\Anime\Application\Api\Requests\AddAnimeRequest;
+use App\Domains\Anime\Models\Anime;
 use App\Domains\Anime\Models\DTOs\AnimeDTO;
 
 class AddAnimeService
@@ -13,9 +14,9 @@ class AddAnimeService
     ) {
     }
 
-    public function addAnime(AddAnimeRequest $addAnimeRequest): void
+    public function addAnime(AddAnimeRequest $addAnimeRequest): Anime
     {
-        $this->addAnimeAction->execute(new AnimeDTO(
+        return $this->addAnimeAction->execute(new AnimeDTO(
             $addAnimeRequest->name,
             $addAnimeRequest->description,
             $addAnimeRequest->genres,

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->integer("id")->autoIncrement()->unique();
             $table->integer("user_id");
             $table->foreign("user_id")->references("id")->on("users");

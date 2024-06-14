@@ -5,9 +5,9 @@ namespace App\Domains\Message\Application\Api\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @property string $message
+ * @property int $userId
  */
-class GetMessagesRequest extends FormRequest
+class GetUserMessagesRequest extends FormRequest
 {
 
 }

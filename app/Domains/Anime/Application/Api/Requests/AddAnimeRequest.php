@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property string $name
  * @property string $description
- * @property array $genres
+ * @property string $genres
  * @property string $theme
  * @property string $originalName
  * @property string $link

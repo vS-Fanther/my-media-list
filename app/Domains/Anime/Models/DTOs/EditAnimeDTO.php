@@ -2,9 +2,10 @@
 
 namespace App\Domains\Anime\Models\DTOs;
 
-class AnimeDTO
+class EditAnimeDTO
 {
     public function __construct(
+        private readonly int $id,
         private readonly string $name,
         private readonly ?string $description,
         private readonly ?string $genres,
@@ -12,9 +13,13 @@ class AnimeDTO
         private readonly ?string $originalName,
         private readonly ?string $link,
         private readonly ?string $mangaLink,
-        private readonly ?int $userId
     )
     {
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getName(): string
@@ -50,11 +55,6 @@ class AnimeDTO
     public function getMangaLink(): ?string
     {
         return $this->mangaLink;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->userId;
     }
 
 

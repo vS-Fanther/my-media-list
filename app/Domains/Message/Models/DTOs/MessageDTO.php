@@ -10,27 +10,28 @@ namespace App\Domains\Message\Models\DTOs;
 class MessageDTO
 {
     public function __construct(
-        private string $message,
-        private int    $animeId,
-        private int    $userId,
+        private readonly ?int    $userId,
+        private readonly ?int    $animeId,
+        private readonly ?string $message
     )
     {
     }
 
-    public function getMessage(): string
+    public function getUserId(): ?int
     {
-        return $this->message;
+        return $this->userId;
     }
 
-    public function getAnimeId(): int
+    public function getAnimeId(): ?int
     {
         return $this->animeId;
     }
 
-    public function getUserId(): int
+    public function getMessage(): ?string
     {
-        return $this->userId;
+        return $this->message;
     }
+
 
 
 }

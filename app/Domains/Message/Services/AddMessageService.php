@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Domains\Message\Application\Actions;
+namespace App\Domains\Message\Services;
 
+use App\Domains\Message\Application\Actions\AddMessageAction;
+use App\Domains\Message\Application\Api\Requests\AddMessageRequest;
 use App\Domains\Message\Models\DTOs\MessageDTO;
 use App\Domains\Message\Models\Message;
 
