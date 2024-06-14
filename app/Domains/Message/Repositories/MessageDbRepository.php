@@ -4,7 +4,6 @@ namespace App\Domains\Message\Repositories;
 
 use App\Domains\Message\Models\Message;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\DB;
 
 class MessageDbRepository
 {
