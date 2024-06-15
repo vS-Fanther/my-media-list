@@ -3,7 +3,7 @@
 namespace App\Domains\User\Application\Api\Controllers;
 
 use App\Domains\User\Application\Api\Requests\AddUserRequest;
-use App\Domains\User\Models\User;
+use App\Domains\User\Application\Api\Resources\UserResource;
 use App\Domains\User\Services\CreateUserService;
 use App\Http\Controllers\Controller;
 
@@ -17,8 +17,9 @@ class RegisterController extends Controller
     }
     public function addUser(
         AddUserRequest $addUserRequest,
-    ): User
+    ): UserResource
     {
-        return $this->createUserService->execute($addUserRequest);
+        $data = $this->createUserService->execute($addUserRequest);
+        return new UserResource($data);
     }
 }

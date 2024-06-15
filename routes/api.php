@@ -9,19 +9,12 @@ use App\Domains\Message\Application\Api\Controllers\DeleteMessageController;
 use App\Domains\Message\Application\Api\Controllers\EditMessageController;
 use App\Domains\Message\Application\Api\Controllers\GetMessagesController;
 use App\Domains\Message\Application\Api\Controllers\GetMessagesByAnimeOrUserIdController;
+use App\Domains\User\Application\Api\Controllers\EditUserController;
+use App\Domains\User\Application\Api\Controllers\LoginController;
 use App\Domains\User\Application\Api\Controllers\RegisterController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
 
-Route::post('/tokens/create', function (Request $request) {
-    $token = $request->user()->createToken($request->token_name);
-
-    return ['token' => $token->plainTextToken];
-});
 Route::prefix('/anime')->group(function () {
     Route::post('/add', [AddAnimeController::class, 'addAnime']);
     Route::get('/', [GetAllAnimeController::class, 'getAllAnime']);
@@ -29,8 +22,11 @@ Route::prefix('/anime')->group(function () {
     Route::get('/owner', [GetAnimeByUserIdController::class, 'getAnimeByUserId']);
 });
 
-
-Route::post('/user/add', [RegisterController::class, 'addUser']);
+Route::prefix('/user')->group(function () {
+    Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/add', [RegisterController::class, 'addUser']);
+    Route::post('/edit', [EditUserController::class, 'editUser']);
+});
 
 Route::prefix('/messages')->group(function () {
     Route::get('/anime', [GetMessagesByAnimeOrUserIdController::class, 'getMessagesForAnime']);
