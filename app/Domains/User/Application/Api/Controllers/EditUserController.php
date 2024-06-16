@@ -11,7 +11,7 @@ class EditUserController extends Controller
 {
     public function __construct(
         private readonly EditUserService $editUserService
-    ){
+    ) {
     }
 
     public function editUser(EditUserRequest $editUserRequest): UserResource

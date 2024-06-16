@@ -15,7 +15,7 @@ class EditAnimeService
     public function __construct(
         private readonly EditAnimeAction $editAnimeAction,
         private readonly AnimeDbRepository $animeDbRepository
-    ){
+    ) {
     }
 
     public function editAnime(EditAnimeRequest $editAnimeRequest): Anime

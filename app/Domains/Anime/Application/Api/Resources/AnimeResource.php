@@ -9,7 +9,7 @@ class AnimeResource  extends JsonResource
 {
     public function __construct(
         private readonly Anime $anime
-    ){
+    ) {
     }
 
     public function toArray($request): array

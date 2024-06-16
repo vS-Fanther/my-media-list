@@ -11,7 +11,7 @@ class GetMessagesController extends Controller
 {
     public function __construct(
         private readonly GetMessagesService $getMessagesService
-    ){
+    ) {
     }
 
     public function getMessages(GetMessagesRequest $getMessagesByTextRequest): ResourceCollection

@@ -9,7 +9,7 @@ class UserResource extends JsonResource
 {
     public function __construct(
         private readonly User $user
-    ){
+    ) {
     }
 
     public function toArray($request): array

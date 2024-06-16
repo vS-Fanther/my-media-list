@@ -3,8 +3,6 @@
 namespace App\Domains\User\Repository;
 
 use App\Domains\User\Models\User;
-use Illuminate\Support\Facades\DB;
-use Laravel\Sanctum\PersonalAccessToken;
 
 class UserDbRepository
 {
@@ -17,12 +15,12 @@ class UserDbRepository
     public function getUserByEmail(string $email): User
     {
         /** @var User */
-        return DB::table('users')->where('email', $email)->first();
+        return User::query()->where('email', $email)->first();
     }
 
     public function getUserById(int $id): User
     {
         /** @var User */
-        return DB::table('users')->where('id', $id)->first();
+        return User::query()->where('id', $id)->first();
     }
 }

@@ -11,8 +11,7 @@ class CreateUserService
 {
     public function __construct(
         private readonly CreateUserAction $createUserAction
-    )
-    {
+    ) {
     }
 
     public function execute(AddUserRequest $addUserRequest): User

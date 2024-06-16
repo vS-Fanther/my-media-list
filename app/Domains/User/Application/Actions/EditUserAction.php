@@ -10,8 +10,7 @@ class EditUserAction
 {
     public function __construct(
         private readonly UserDbRepository $userDbRepository
-    )
-    {
+    ) {
     }
 
     public function editUser(EditUserDTO $editUserDTO, User $user): User

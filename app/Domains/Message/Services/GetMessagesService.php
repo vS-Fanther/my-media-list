@@ -12,8 +12,7 @@ class GetMessagesService
 {
     public function __construct(
         private readonly MessageDbRepository $messageDbRepository
-    )
-    {
+    ) {
     }
 
     public function getMessagesForAnime(GetAnimeMessagesRequest $getAnimeMessagesRequest): Collection

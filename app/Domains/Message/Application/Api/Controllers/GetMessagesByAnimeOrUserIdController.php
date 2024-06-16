@@ -12,7 +12,7 @@ class GetMessagesByAnimeOrUserIdController extends Controller
 {
     public function __construct(
         private readonly GetMessagesService $getMessagesService
-    ){
+    ) {
     }
 
     public function getMessagesForAnime(GetAnimeMessagesRequest $getAnimeMessagesRequest): ResourceCollection

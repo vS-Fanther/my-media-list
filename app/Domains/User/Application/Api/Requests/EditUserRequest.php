@@ -10,5 +10,10 @@ namespace App\Domains\User\Application\Api\Requests;
  */
 class EditUserRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'id' => ['required', 'integer', 'exists:users,id'],
+        ];
+    }
 }

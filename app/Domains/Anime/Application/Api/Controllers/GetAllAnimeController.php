@@ -10,8 +10,7 @@ class GetAllAnimeController extends Controller
 {
     public function __construct(
         private readonly GetAnimeService $getAnimeService
-    )
-    {
+    ) {
     }
 
     public function getAllAnime(): ResourceCollection

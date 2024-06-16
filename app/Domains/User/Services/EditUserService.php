@@ -13,8 +13,7 @@ class EditUserService
     public function __construct(
         private readonly UserDbRepository $userDbRepository,
         private readonly EditUserAction   $editUserAction
-    )
-    {
+    ) {
     }
 
     public function editUser(EditUserRequest $editUserRequest): User

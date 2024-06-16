@@ -12,7 +12,7 @@ class AddMessageAction
     public function __construct(
         private readonly MessageFactory      $messageFactory,
         private readonly MessageDbRepository $messageDbRepository
-    ){
+    ) {
     }
 
     public function execute(MessageDTO $messageDTO): Message

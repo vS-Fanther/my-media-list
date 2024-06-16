@@ -16,5 +16,10 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class EditAnimeRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'id' => ['required', 'integer', 'exists:anime,id'],
+        ];
+    }
 }

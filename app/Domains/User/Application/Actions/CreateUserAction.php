@@ -13,7 +13,7 @@ class CreateUserAction
     public function __construct(
         private readonly UserFactory $userFactory,
         private readonly UserDbRepository $addUserDbRepository
-    ){
+    ) {
     }
 
     public function execute(UserDTO $createUserDTO): User

@@ -11,11 +11,11 @@ namespace App\Domains\User\Models\DTOs;
 class EditUserDTO
 {
     public function __construct(
-        private readonly int $id,
+        private readonly int    $id,
         private readonly string $username,
         private readonly string $password,
         private readonly string $email
-    ){
+    ) {
     }
 
     public function getEmail(): string
@@ -37,6 +37,4 @@ class EditUserDTO
     {
         return $this->id;
     }
-
-
 }

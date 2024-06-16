@@ -10,5 +10,11 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class EditMessageRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'id' => ['required', 'integer'],
+            'message' => ['required', 'string'],
+        ];
+    }
 }

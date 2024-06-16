@@ -9,5 +9,10 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class GetAnimeByUserIdRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'userId' => ['required', 'integer', 'exists:users,id'],
+        ];
+    }
 }

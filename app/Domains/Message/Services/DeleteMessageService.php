@@ -9,8 +9,7 @@ class DeleteMessageService
 {
     public function __construct(
         private readonly MessageDbRepository $messageDbRepository
-    )
-    {
+    ) {
     }
 
     public function deleteMessage(DeleteMessageRequest $deleteMessageRequest): int

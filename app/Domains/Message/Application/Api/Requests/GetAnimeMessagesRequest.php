@@ -9,5 +9,10 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class GetAnimeMessagesRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'animeId' => ['required', 'integer', 'exists:anime,id'],
+        ];
+    }
 }

@@ -9,7 +9,7 @@ class MessageResource extends JsonResource
 {
     public function __construct(
         private readonly Message $message
-    ){
+    ) {
     }
 
     public function toArray($request): array

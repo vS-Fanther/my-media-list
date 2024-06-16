@@ -11,5 +11,12 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class AddMessageRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'userId' => ['required', 'integer', 'exists:users,id'],
+            'message' => ['required', 'string'],
+            'animeId' => ['required', 'integer', 'exists:anime,id'],
+        ];
+    }
 }
