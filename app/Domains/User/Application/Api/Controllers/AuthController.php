@@ -5,9 +5,10 @@ namespace App\Domains\User\Application\Api\Controllers;
 use App\Domains\User\Application\Api\Requests\LoginRequest;
 use App\Domains\User\Application\Api\Requests\LogoutRequest;
 use App\Domains\User\Application\Api\Resources\AuthResource;
+use App\Domains\User\ErrorHandling\UserNotFoundException;
+use App\Domains\User\ErrorHandling\WrongPasswordException;
 use App\Domains\User\Services\AuthService;
 use App\Http\Controllers\Controller;
-use Exception;
 use Illuminate\Http\Response;
 
 class AuthController extends Controller
@@ -26,10 +27,15 @@ class AuthController extends Controller
                 'Logged in successfully',
                 $data
             );
-        } catch (Exception $e) {
+        } catch (UserNotFoundException $userNotFoundException) {
             return new AuthResource(
                 Response::HTTP_BAD_REQUEST,
-                $e->getMessage()
+                $userNotFoundException->getMessage()
+            );
+        } catch (WrongPasswordException $wrongPasswordException) {
+            return new AuthResource(
+                Response::HTTP_BAD_REQUEST,
+                $wrongPasswordException->getMessage()
             );
         }
     }
