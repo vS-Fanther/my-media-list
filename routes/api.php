@@ -16,23 +16,23 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('/anime')->group(function () {
-    Route::post('/add', [AddAnimeController::class, 'addAnime']);
+    Route::post('/add', [AddAnimeController::class, 'addAnime'])->middleware('auth:sanctum');
     Route::get('/', [GetAllAnimeController::class, 'getAllAnime']);
-    Route::post('/edit', [EditAnimeController::class, 'editAnime']);
+    Route::post('/edit', [EditAnimeController::class, 'editAnime'])->middleware('auth:sanctum');
     Route::get('/owner', [GetAnimeByUserIdController::class, 'getAnimeByUserId']);
 });
 
 Route::prefix('/user')->group(function () {
-    Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/add', [RegisterController::class, 'addUser']);
-    Route::post('/edit', [EditUserController::class, 'editUser']);
+    Route::post('/edit', [EditUserController::class, 'editUser'])->middleware('auth:sanctum');
 });
 
 Route::prefix('/messages')->group(function () {
     Route::get('/anime', [GetMessagesByAnimeOrUserIdController::class, 'getMessagesForAnime']);
     Route::get('/user', [GetMessagesByAnimeOrUserIdController::class, 'getMessagesForUser']);
     Route::get('/', [GetMessagesController::class, 'getMessages']);
-    Route::post('/add', [AddMessageController::class, 'addMessage']);
-    Route::post('/', [EditMessageController::class, 'editMessage']);
-    Route::delete('/', [DeleteMessageController::class, 'deleteMessage']);
+    Route::post('/add', [AddMessageController::class, 'addMessage'])->middleware('auth:sanctum');
+    Route::post('/', [EditMessageController::class, 'editMessage'])->middleware('auth:sanctum');
+    Route::delete('/', [DeleteMessageController::class, 'deleteMessage'])->middleware('auth:sanctum');
 });
