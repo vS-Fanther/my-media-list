@@ -5,7 +5,7 @@ namespace App\Domains\User\Application\Api\Resources;
 use App\Domains\User\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LoginResource extends JsonResource
+class AuthResource extends JsonResource
 {
     public function __construct(
         public readonly int $statusCode,
