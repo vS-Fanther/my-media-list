@@ -12,7 +12,7 @@ class UserDbRepository
         return $user;
     }
 
-    public function getUserByEmail(string $email): User
+    public function getUserByEmail(string $email): ?User
     {
         /** @var User */
         return User::query()->where('email', $email)->first();

@@ -6,7 +6,7 @@ use App\Domains\User\Application\Api\Requests\LoginRequest;
 use App\Domains\User\Application\Api\Resources\LoginResource;
 use App\Domains\User\Services\LoginUserService;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Exception;
 use Illuminate\Http\Response;
 
 class LoginController extends Controller
@@ -25,7 +25,7 @@ class LoginController extends Controller
                 'Logged in successfully',
                 $data
             );
-        } catch (ModelNotFoundException $e) {
+        } catch (Exception $e) {
             return new LoginResource(
                 Response::HTTP_BAD_REQUEST,
                 $e->getMessage()
