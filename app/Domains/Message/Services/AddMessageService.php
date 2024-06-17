@@ -11,8 +11,7 @@ class AddMessageService
 {
     public function __construct(
         private readonly AddMessageAction $addMessageAction
-    )
-    {
+    ) {
     }
 
     public function addMessage(AddMessageRequest $addMessageRequest): Message

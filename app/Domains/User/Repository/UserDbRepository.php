@@ -3,24 +3,24 @@
 namespace App\Domains\User\Repository;
 
 use App\Domains\User\Models\User;
-use Illuminate\Support\Facades\DB;
-use Laravel\Sanctum\PersonalAccessToken;
 
 class UserDbRepository
 {
-    public function save(User $user): bool
+    public function save(User $user): User
     {
-        return $user->save();
+        $user->save();
+        return $user;
     }
 
-    public function getUser(User $user): PersonalAccessToken|null
+    public function getUserByEmail(string $email): ?User
     {
-        $model = DB::table('users')->where('username', $user->username)->first();
+        /** @var User */
+        return User::query()->where('email', $email)->first();
+    }
 
-        if (bcrypt($user->password) == $model->password) {
-            return $user->createToken("token")->accessToken;
-        } else {
-            return null;
-        }
+    public function getUserById(int $id): User
+    {
+        /** @var User */
+        return User::query()->where('id', $id)->first();
     }
 }

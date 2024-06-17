@@ -12,8 +12,7 @@ class AddAnimeAction
     public function __construct(
         private readonly AnimeFactory $animeFactory,
         private readonly AnimeDbRepository $animeDbRepository
-    )
-    {
+    ) {
     }
 
     public function execute(AnimeDTO $animeDTO): Anime

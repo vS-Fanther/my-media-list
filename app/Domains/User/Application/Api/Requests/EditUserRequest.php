@@ -2,21 +2,18 @@
 
 namespace App\Domains\User\Application\Api\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
 /**
+ * @property int $id
  * @property string $username
  * @property string $email
  * @property string $password
  */
-class AddUserRequest extends FormRequest
+class EditUserRequest
 {
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string'],
-            'password' => ['required', 'string'],
-            'email' => ['required', 'email'],
+            'id' => ['required', 'integer', 'exists:users,id'],
         ];
     }
 }

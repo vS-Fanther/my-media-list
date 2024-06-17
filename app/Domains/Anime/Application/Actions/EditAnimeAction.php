@@ -11,8 +11,7 @@ class EditAnimeAction
 {
     public function __construct(
         private readonly AnimeDbRepository $animeDbRepository
-    )
-    {
+    ) {
     }
 
     public function execute(EditAnimeDTO $editAnimeDTO, Anime $anime): Anime

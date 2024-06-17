@@ -14,8 +14,7 @@ class EditMessageService
     public function __construct(
         private readonly MessageDbRepository $messageDbRepository,
         private readonly EditMessageAction $editMessageAction
-    )
-    {
+    ) {
     }
 
     public function editMessage(EditMessageRequest $editMessageRequest): Message

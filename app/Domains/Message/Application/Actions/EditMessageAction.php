@@ -10,7 +10,7 @@ class EditMessageAction
 {
     public function __construct(
         private readonly MessageDbRepository $messageDbRepository
-    ){
+    ) {
     }
 
     public function execute(Message $message, EditMessageDTO $editMessageDTO): Message

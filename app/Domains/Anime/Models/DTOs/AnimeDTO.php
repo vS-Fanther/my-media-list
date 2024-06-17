@@ -13,8 +13,7 @@ class AnimeDTO
         private readonly ?string $link,
         private readonly ?string $mangaLink,
         private readonly ?int $userId
-    )
-    {
+    ) {
     }
 
     public function getName(): string

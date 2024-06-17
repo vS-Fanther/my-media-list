@@ -13,8 +13,7 @@ class EditAnimeDTO
         private readonly ?string $originalName,
         private readonly ?string $link,
         private readonly ?string $mangaLink,
-    )
-    {
+    ) {
     }
 
     public function getId(): int

@@ -13,8 +13,7 @@ class MessageDTO
         private readonly ?int    $userId,
         private readonly ?int    $animeId,
         private readonly ?string $message
-    )
-    {
+    ) {
     }
 
     public function getUserId(): ?int

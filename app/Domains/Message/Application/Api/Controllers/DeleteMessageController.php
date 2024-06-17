@@ -10,7 +10,7 @@ class DeleteMessageController extends Controller
 {
     public function __construct(
         private readonly DeleteMessageService $deleteMessageService
-    ){
+    ) {
     }
 
     public function deleteMessage(DeleteMessageRequest $deleteMessageRequest): int

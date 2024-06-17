@@ -11,7 +11,7 @@ class EditMessageController extends Controller
 {
     public function __construct(
         private readonly EditMessageService $editMessageService
-    ){
+    ) {
     }
 
     public function editMessage(EditMessageRequest $editMessageRequest): MessageResource

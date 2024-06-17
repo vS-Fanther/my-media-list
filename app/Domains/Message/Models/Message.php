@@ -20,9 +20,6 @@ class Message extends Model
 
     public function fillFromDTO(MessageDTO $messageDTO): void
     {
-        if ($messageDTO instanceof EditMessageDTO) {
-            $this->id = $messageDTO->getId();
-        }
         $this->message = $messageDTO->getMessage();
         $this->user_id = $messageDTO->getUserId();
         $this->anime_id = $messageDTO->getAnimeId();

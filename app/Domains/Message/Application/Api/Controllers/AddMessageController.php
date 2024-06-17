@@ -11,7 +11,7 @@ class AddMessageController extends Controller
 {
     public function __construct(
         private readonly AddMessageService $addMessageService
-    ){
+    ) {
     }
 
     public function addMessage(AddMessageRequest $addMessageRequest): MessageResource

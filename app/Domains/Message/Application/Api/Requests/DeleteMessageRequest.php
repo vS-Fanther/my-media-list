@@ -9,5 +9,10 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 class DeleteMessageRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [
+            'messageId' => ['required', 'integer', 'exists:messages,id'],
+        ];
+    }
 }

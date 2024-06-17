@@ -11,7 +11,7 @@ class EditMessageDTO
     public function __construct(
         private readonly ?int    $id,
         private readonly ?string $message
-    ){
+    ) {
     }
 
     public function getId(): ?int

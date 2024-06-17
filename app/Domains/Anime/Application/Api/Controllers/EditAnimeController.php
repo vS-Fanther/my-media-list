@@ -11,7 +11,7 @@ class EditAnimeController extends Controller
 {
     public function __construct(
         private readonly EditAnimeService $editAnimeService
-    ){
+    ) {
     }
 
     public function editAnime(EditAnimeRequest $editAnimeRequest): AnimeResource

@@ -10,7 +10,7 @@ class GetAnimeByUserIdController
 {
     public function __construct(
         private readonly GetAnimeService $getAnimeService
-    ){
+    ) {
     }
 
     public function getAnimeByUserId(GetAnimeByUserIdRequest $getAnimeByUserIdRequest): ResourceCollection

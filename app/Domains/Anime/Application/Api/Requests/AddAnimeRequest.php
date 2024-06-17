@@ -20,6 +20,7 @@ class AddAnimeRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'userId' => ['required', 'integer', 'exists:users,id'],
         ];
     }
 }
