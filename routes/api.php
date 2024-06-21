@@ -4,6 +4,7 @@ use App\Domains\Anime\Application\Api\Controllers\AddAnimeController;
 use App\Domains\Anime\Application\Api\Controllers\EditAnimeController;
 use App\Domains\Anime\Application\Api\Controllers\GetAllAnimeController;
 use App\Domains\Anime\Application\Api\Controllers\GetAnimeByUserIdController;
+use App\Domains\Anime\Application\Api\Controllers\ImportAnimeController;
 use App\Domains\Message\Application\Api\Controllers\AddMessageController;
 use App\Domains\Message\Application\Api\Controllers\DeleteMessageController;
 use App\Domains\Message\Application\Api\Controllers\EditMessageController;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/anime')->group(function () {
     Route::post('/add', [AddAnimeController::class, 'addAnime'])->middleware('auth:sanctum');
+    Route::post('/import', [ImportAnimeController::class, 'importAnime'])->middleware('auth:sanctum');
     Route::get('/', [GetAllAnimeController::class, 'getAllAnime']);
     Route::post('/edit', [EditAnimeController::class, 'editAnime'])->middleware('auth:sanctum');
     Route::get('/owner', [GetAnimeByUserIdController::class, 'getAnimeByUserId']);
