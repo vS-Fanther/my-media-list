@@ -27,9 +27,4 @@ class AddAnimeService
             $addAnimeRequest->userId
         ));
     }
-
-    public function addAnimeFromDTO(AnimeDTO $animeDTO): void
-    {
-        $this->addAnimeAction->execute($animeDTO);
-    }
 }

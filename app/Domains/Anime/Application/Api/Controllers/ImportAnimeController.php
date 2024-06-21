@@ -2,37 +2,21 @@
 
 namespace App\Domains\Anime\Application\Api\Controllers;
 
-use App\Domains\Anime\Models\Anime;
+use App\Domains\Anime\Application\Api\Resources\ImportAnimeResource;
 use App\Http\Controllers\Controller;
+use App\Jobs\ProcessAnimeImportJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImportAnimeController extends Controller
 {
 
-    //todo Queues
-    public function importAnime(Request $request): void
+    public function importAnime(Request $request): ImportAnimeResource
     {
-        $fp = $request->file('anime')->store('anime');
-        $fullFilePath = storage_path('app/' . $fp);
+        $path = Storage::put('Anime_list', $request->file('anime'));
+        $fullFilePath = storage_path('app/' . $path);
 
-        $lines = file($fullFilePath);
-        $chunks = array_chunk($lines, 500);
-        foreach ($chunks as $chunk) {
-            $data = [];
-            foreach ($chunk as $line) {
-                $params = explode(",", $line);
-                $data[] = [
-                    'name' => $params[0],
-                    'description' => $params[1],
-                    'genres' => $params[2],
-                    'theme' => $params[3],
-                    'original_name' => $params[4],
-                    'link' => $params[5],
-                    'manga_link' => $params[6],
-                    'user_id' => $params[7]
-                ];
-            }
-            Anime::query()->insert($data);
-        }
+        ProcessAnimeImportJob::dispatch($fullFilePath);
+        return new ImportAnimeResource("Success");
     }
 }
