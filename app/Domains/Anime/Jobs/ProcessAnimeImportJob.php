@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Domains\Anime\Jobs;
 
 use App\Domains\Anime\Models\Anime;
 use Illuminate\Bus\Queueable;

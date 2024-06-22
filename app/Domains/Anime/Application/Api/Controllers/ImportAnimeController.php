@@ -3,8 +3,8 @@
 namespace App\Domains\Anime\Application\Api\Controllers;
 
 use App\Domains\Anime\Application\Api\Resources\ImportAnimeResource;
+use App\Domains\Anime\Jobs\ProcessAnimeImportJob;
 use App\Http\Controllers\Controller;
-use App\Jobs\ProcessAnimeImportJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
