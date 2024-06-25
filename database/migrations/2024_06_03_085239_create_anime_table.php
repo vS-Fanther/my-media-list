@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('anime', function (Blueprint $table) {
             $table->integer("id")->autoIncrement()->unique();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('genres')->nullable();
             $table->string('theme')->nullable();
             $table->string('original_name')->nullable();

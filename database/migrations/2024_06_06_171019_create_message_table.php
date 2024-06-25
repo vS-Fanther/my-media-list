@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign("user_id")->references("id")->on("users");
             $table->integer("anime_id");
             $table->foreign("anime_id")->references("id")->on("anime");
-            $table->string("message");
+            $table->text("message");
             $table->timestamps();
         });
     }
