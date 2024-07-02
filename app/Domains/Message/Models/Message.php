@@ -2,7 +2,6 @@
 
 namespace App\Domains\Message\Models;
 
-use App\Domains\Message\Models\DTOs\EditMessageDTO;
 use App\Domains\Message\Models\DTOs\MessageDTO;
 use Illuminate\Database\Eloquent\Model;
 
