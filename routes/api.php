@@ -12,6 +12,7 @@ use App\Domains\Message\Application\Api\Controllers\GetMessagesController;
 use App\Domains\Message\Application\Api\Controllers\GetMessagesByAnimeOrUserIdController;
 use App\Domains\User\Application\Api\Controllers\EditUserController;
 use App\Domains\User\Application\Api\Controllers\AuthController;
+use App\Domains\User\Application\Api\Controllers\GetUsersController;
 use App\Domains\User\Application\Api\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::prefix('/user')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('logout');
     Route::post('/add', [RegisterController::class, 'addUser']);
     Route::post('/edit', [EditUserController::class, 'editUser'])->middleware('auth:sanctum');
+    Route::get('/', [GetUsersController::class, 'getUsers']);
 });
 
 Route::prefix('/messages')->group(function () {

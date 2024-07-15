@@ -3,6 +3,7 @@
 namespace App\Domains\User\Repository;
 
 use App\Domains\User\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
 class UserDbRepository
 {
@@ -22,5 +23,13 @@ class UserDbRepository
     {
         /** @var User */
         return User::query()->where('id', $id)->first();
+    }
+
+    public function getUsersWithPaging(int $limit, int $page): Collection
+    {
+        return User::query()
+            ->offset($limit * ($page - 1))
+            ->limit($limit)
+            ->get();
     }
 }
