@@ -12,9 +12,12 @@ class AnimeDbRepository
         return $anime->save();
     }
 
-    public function getAllAnime(): Collection
+    public function getAnimesWithPaging(int $limit, int $page): Collection
     {
-        return Anime::all();
+        return Anime::query()
+            ->offset($limit * ($page - 1))
+            ->limit($limit)
+            ->get();
     }
 
     public function getAnimeByUserId(int $userId): Collection

@@ -2,7 +2,7 @@
 
 namespace App\Domains\Anime\Services;
 
-use App\Domains\Anime\Application\Api\Requests\GetAnimeByUserIdRequest;
+use App\Domains\Anime\Application\Api\Requests\GetAnimeRequest;
 use App\Domains\Anime\Repositories\AnimeDbRepository;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -13,12 +13,17 @@ class GetAnimeService
     ) {
     }
 
-    public function getAllAnime(): Collection
+    public function getAllAnime(GetAnimeRequest $getAnimeRequest): Collection
     {
-        return $this->animeDbRepository->getAllAnime();
+        return $this
+            ->animeDbRepository
+            ->getAnimesWithPaging(
+                $getAnimeRequest->limit,
+                $getAnimeRequest->page
+            );
     }
 
-    public function getAnimeByUserId(GetAnimeByUserIdRequest $getAnimeByUserIdRequest): Collection
+    public function getAnimeByUserId(GetAnimeRequest $getAnimeByUserIdRequest): Collection
     {
         return $this->animeDbRepository->getAnimeByUserId($getAnimeByUserIdRequest->userId);
     }

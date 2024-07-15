@@ -16,7 +16,7 @@ class EditUserAction
     public function editUser(EditUserDTO $editUserDTO, User $user): User
     {
         $user->email = $editUserDTO->getEmail();
-        $user->password = $editUserDTO->getPassword();
+        $user->password = bcrypt($editUserDTO->getPassword());
         $user->username = $editUserDTO->getUsername();
 
         return $this->userDbRepository->save($user);

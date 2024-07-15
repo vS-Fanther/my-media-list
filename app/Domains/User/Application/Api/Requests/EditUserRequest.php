@@ -14,6 +14,9 @@ class EditUserRequest
     {
         return [
             'id' => ['required', 'integer', 'exists:users,id'],
+            'username' => ['nullable', 'string'],
+            'email' => ['nullable', 'string'],
+            'password' => ['nullable', 'string'],
         ];
     }
 }

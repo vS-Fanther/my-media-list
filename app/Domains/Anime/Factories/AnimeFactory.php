@@ -3,7 +3,6 @@
 namespace App\Domains\Anime\Factories;
 
 use App\Domains\Anime\Models\Anime;
-use App\Domains\Anime\Models\DTOs\AnimeDTO;
 
 class AnimeFactory
 {
