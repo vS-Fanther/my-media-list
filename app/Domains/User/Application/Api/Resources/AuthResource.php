@@ -17,6 +17,7 @@ class AuthResource extends JsonResource
     public function toArray($request): array
     {
         return [
+            'id' => $this->when($this->user, $this->user?->getId()),
             'email' => $this->when($this->user, $this->user?->getEmail()),
             'token' => $this->when($this->user, $this->user?->getToken()),
             'message' => $this->when(! $this->user, $this->message),

@@ -27,6 +27,11 @@ class User extends Model
         return $this->email;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getToken(): string
     {
         return $this->createToken(self::TOKEN_NAME)->plainTextToken;
