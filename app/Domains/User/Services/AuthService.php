@@ -34,7 +34,7 @@ class AuthService
 
     public function logout(LogoutRequest $logoutRequest): void
     {
-        $user = $this->userDbRepository->getUserByEmail($logoutRequest->email);
+        $user = $this->userDbRepository->getUserById($logoutRequest->id);
         $user->tokens()->delete();
     }
 }
